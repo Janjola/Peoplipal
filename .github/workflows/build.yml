@@ -44,18 +44,18 @@ jobs:
         with:
           gradle-version: '8.9'
 
-            - name: Find project and build APK
+      - name: Find project and build APK
         shell: bash
         run: |
-          echo "Searching for Gradle project..."
-          find . -maxdepth 5 -name settings.gradle -print
+          echo "Searching for settings.gradle..."
+          find . -maxdepth 6 -name settings.gradle -print
 
           SETTINGS_FILE="$(find . -type f -name settings.gradle -print -quit)"
 
           if [ -z "$SETTINGS_FILE" ]; then
             echo "ERROR: settings.gradle not found!"
             echo "Repository files:"
-            find . -maxdepth 4 -type f | head -100
+            find . -maxdepth 5 -type f | head -100
             exit 1
           fi
 
@@ -68,8 +68,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: DotLoading-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: '**/app/build/outputs/apk/debug/app-debug.apk'
           if-no-files-found: error
-
-
-        
