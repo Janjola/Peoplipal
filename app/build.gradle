@@ -1,14 +1,14 @@
 
 plugins {
-    id 'com.android.application'
+    id 'com.android.application' version '8.7.3'
 }
 
 android {
-    namespace 'com.tejplays.dotloading'
+    namespace 'com.dotloading.phone'
     compileSdk 35
 
     defaultConfig {
-        applicationId 'com.tejplays.dotloading'
+        applicationId 'com.dotloading.phone'
         minSdk 23
         targetSdk 35
         versionCode 1
